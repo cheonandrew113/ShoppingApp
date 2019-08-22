@@ -1,0 +1,18 @@
+<div class="title-container">
+
+  <h1>Categories</h1> <br/>
+  <div class="Categories">
+      <% @categories.each do |category| %> 
+      
+      <div class="Category">
+          <ol>
+          <%= link_to category_products_path(category) do %>
+          <%= category.title %>
+          (<%= category.products.count %> products)
+          </ol>
+          <%end %>
+        <%end%>
+      </div>
+  </div>    
+
+</div>
