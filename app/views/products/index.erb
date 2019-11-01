@@ -1,11 +1,72 @@
 <h2>
-  <%= link_to "Categories", root_path %> /
-  <%= @category.title %> /
-  Products
+  <br/> <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "Categories", root_path %> /
+  <%= @category.title %> / 
+  Products<br/> <br/> <br/>
 </h2>
 
+<body>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    
+<% @products.each do |product| %>
+
+
+<div class="col-lg-3 col-sm-6">
+
+          <div class="card-deck mb-3 text-center">
+          
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+            
+              <h4 class="my-0 font-weight-normal"><%= product.title %> </h4>
+            
+            </div>
+          
+              
+            <div class="card-body">
+            <p> I don't price match </p>
+              <h1 class="card-title pricing-card-title"> <%= number_to_currency product.price %></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>  
+                
+                      Quantity<%= form_tag order_items_path do %>
+                      <%= hidden_field_tag :product_id, product.id %>
+                      <%= number_field_tag :quantity, 1 %>
+                      <br/>
+                      <br/> 
+                      <%= submit_tag "Add to Cart", class: "btn btn-lg btn-block btn-primary" %> 
+                 </li>
+                      
+                
+              </ul>
+              </div>
+               </div>
+                <%end%>
+                
+                     
+       
+  
+          </div>
+        </div>
+        
+<% end %>
+
+</div>
+</div>
+
+
+</body>
+
+
+<!--
 <ol>
-  <% @products.each do |product| %> <br/>
+
+  <% @products.each do |product| %>
     <ul>
       <%= product.title %> | 
       <%= number_to_currency product.price %>

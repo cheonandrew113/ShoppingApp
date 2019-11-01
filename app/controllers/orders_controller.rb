@@ -10,8 +10,11 @@ class OrdersController < ApplicationController
 		if @order.update_attributes(order_params.merge(status: 'open'))
 			session[:cart_token] = nil
 
-			redirect_to root_path
 
+			
+			redirect_to root_path
+			
+			flash[:notice] = "Your order has been received!"
 		else
 			render :new
 		end
@@ -20,7 +23,7 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-		params.require(:order).permit(:first_name, :last_name)
+		params.require(:order).permit(:first_name)
 	end
 
 

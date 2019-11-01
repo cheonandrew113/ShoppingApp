@@ -30,6 +30,16 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
 
+gem 'jquery-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>=1.1.0'
+end
+
+
+
+gem 'popper_js'
+
 gem 'devise-bootstrap-views'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'

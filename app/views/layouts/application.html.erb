@@ -1,49 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Shoppingap" %></title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
 
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<% stylesheet_link_tag "application", :media => "all" %>
 
     <%= javascript_include_tag "application" %>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<%= csrf_meta_tags %>
 
   </head>
+
+
+
   <body>
-
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href='/categories'>ShoppingApp</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav nav-tabs">
-            
-                <li><%= link_to 'Home', root_path %>   </li>
-              <li> <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %></li>
-              <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete%> </li>
-  
+  <body class="bg-light">
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" >
+     
+      
+        <a class="navbar-brand" href="/categories" style="padding-left:40px">Andrew's eShop</a>
+          
+          <ul class="nav-item" >  
+              <h5> <a class="nav-link" style="padding-right: 80px" > <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %></a>
+             
+                   
           </ul>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
+        
+        
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              
+            </li>
+          
+            
+          <li class="nav-item">  
+                    <a class="nav-link" style="padding-right:10px"> <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %></a>
+               
+                   
+          </li>
+          </ul>
+
+        
+        </div>
+      
+      
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
           <%= yield %>
         </div>
       </div><!--/row-->
     </div> <!-- /container -->
 
+
+<br/>
+<br/>
+
+
+
+</body>
+
+
   </body>
+
+
+<footer class="blog-footer">
+<div class="p-3 mb-2 bg-dark text-white">
+  <p>I do not collect any money from you. This website is just a demonstration purpose.</p>
+  
+  </div>
+</footer>
 </html>

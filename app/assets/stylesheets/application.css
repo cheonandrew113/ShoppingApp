@@ -1,0 +1,7 @@
+body {
+    color: white;
+    background-color: black;
+    background-image: linear-gradient(black,rgb(88,88,88));
+    background-attachment: fixed;
+    height: 100%;
+ }

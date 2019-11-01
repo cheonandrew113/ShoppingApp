@@ -1,23 +1,48 @@
 
-<h2>Current Cart</h2>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<center>
+<h2>Current Cart</h2> <br/>
 <table>
   <thead>
+  <style type="text/css" media="screen">
+
+table{
+border-collapse:collapse;
+border:1px solid #FF0000;
+}
+
+table td{
+border:1px solid #FF0000;
+}
+</style>
     <tr>
-      <td>Product</td>
-      <td>Price</td>
-      <td>Quantity</td>
+      
+     
+      <td><b>Product</b></td>
+      <td><b>&nbsp; Price</b></td>
+      <td><b>&nbsp; &nbsp; Quantity</b> </td>
       <td></td>
+      
+      
     </tr>
   </thead>
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.product.title %></td>
-        <td><%= number_to_currency item.price %></td>
-        <td>  <%= item.quantity %></td>
+        <td>&nbsp;<%= item.product.title %> &nbsp; </td>
+        <td>&nbsp; <%= number_to_currency item.price %></td>
+        <td> &nbsp; &nbsp; &nbsp; &nbsp; <%= item.quantity %> </td>
         <td>
           <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
+           <center> &nbsp; <%= f.submit "Remove" %> </center>
           <% end %> <br/>
         </td>
       </tr>
@@ -26,12 +51,15 @@
 
   <tfoot>
     <tr>
-    <td colspan="4" align="right">
-      <%= number_to_currency current_cart.sub_total %>
+
+    <td colspan="4" align="bottom-left">
+     <b> <a>Total:  </a>  
+     <a> <div align="right"><%= number_to_currency current_cart.sub_total %> </div> </b> </a>
 
     </tr>
 
   </tfoot>
 </table>
-
-<%= link_to 'Checkout', checkout_path%>
+<br/>
+<a class="btn btn-primary" href= "<%= checkout_path %>" role="button">Checkout</a>
+</center>
